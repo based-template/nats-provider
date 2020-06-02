@@ -17,7 +17,8 @@ mod nats;
 #[macro_use]
 extern crate wascc_codec as codec;
 
-pub const VERSION: &str = env!("CARGO_PKG_VERSION");
+const VERSION: &str = env!("CARGO_PKG_VERSION");
+const REVISION: u32 = 2; // Increment for each crates publish
 
 #[macro_use]
 extern crate log;
@@ -109,7 +110,7 @@ impl NatsProvider {
                 .name("Default waSCC Messaging Provider (NATS)")
                 .long_description("A NATS-based implementation of the wascc:messaging contract")
                 .version(VERSION)
-                .revision(2)
+                .revision(REVISION)
                 .with_operation(
                     OP_PUBLISH_MESSAGE,
                     OperationDirection::ToProvider,
